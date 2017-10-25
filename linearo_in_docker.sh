@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOCKER_IMAGE=linearo
+DOCKER_IMAGE="cnspeckn/linearo-arm:7.1.1-2017.08-1"
 
 COMMAND=`basename $0`
 

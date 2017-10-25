@@ -1,5 +1,6 @@
 #!/bin/bash
 
+DOCKER_IMAGE="cnspeckn/linearo-arm:7.1.1-2017.08-1"
 SCRIPT=`basename $0`
 TARGETS="\
     arm-eabi-addr2line \
@@ -44,6 +45,8 @@ usage() {
 test -n "$1" || usage
 test -d "$1" || usage "target '$1' is not a directory"
 test -f ./linearo_in_docker.sh || usage "this must be run from the directory with linearo_in_docker.sh"
+
+docker pull "$DOCKER_IMAGE"
 
 for target in $TARGETS; do
     ln -s "`pwd`/linearo_in_docker.sh" "$1/$target"
